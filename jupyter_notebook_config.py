@@ -20,6 +20,10 @@ c.NotebookApp.ip = '*'
 c.NotebookApp.port = int(os.getenv('PORT', 8888))
 c.NotebookApp.open_browser = False
 
+
+if 'BASE_URL' in os.environ:
+  c.NotebookApp.base_url = os.environ['BASE_URL']
+
 # sets a password if PASSWORD is set in the environment
 if 'PASSWORD' in os.environ:
   password = os.environ['PASSWORD']
