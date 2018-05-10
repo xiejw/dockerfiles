@@ -1,16 +1,16 @@
-# Tensorflow Docker
+## Tensorflow Docker
 
-## Version
+### Version
 
 1.6.0.
 
-## Usage
+### Usage
 
     docker build -t tensorflow -f Dockerfile.tensorflow .
     mkdir ~/notebooks
     docker run --rm -it -v ~/notebooks:/notebooks -p 8888:8888 tensorflow
 
-## Packages
+### Packages
 
 Debian packages:
 
@@ -20,6 +20,19 @@ Debian packages:
 
 Python packages: `pandas`, `jupyter`, `notebooke`, `matplotlib`.
 
-## Environment Variable
+### Environment Variable
 
 - `BASE_URL`: Set `c.NotebookApp.base_url`. This is useful for `nginx`.
+
+## Keras
+
+### Version
+
+2.1.5 (TF backend 1.6.0)
+
+### Usage
+
+    docker build -t keras -f Dockerfile.keras .
+    mkdir ~/notebooks
+    docker run --rm -it -v ~/notebooks:/notebooks keras
+
