@@ -1,4 +1,4 @@
-## Tensorflow Docker
+# Tensorflow Docker
 
 ### Version
 
@@ -7,8 +7,9 @@
 ### Usage
 
     docker build -t tensorflow -f Dockerfile.tensorflow .
-    mkdir ~/notebooks
-    docker run --rm -it -v ~/notebooks:/notebooks -p 8888:8888 tensorflow
+    NOTEBOOK=~/notebooks
+    mkdir $NOTEBOOK
+    docker run --rm -it -v $NOTEBOOK:/notebooks -p 8888:8888 tensorflow
 
 ### Packages
 
@@ -23,16 +24,18 @@ Python packages: `pandas`, `jupyter`, `notebooke`, `matplotlib`.
 ### Environment Variable
 
 - `BASE_URL`: Set `c.NotebookApp.base_url`. This is useful for `nginx`.
+- `PASSWORD`: Set `c.NotebookApp.password`.
 
-## Keras
+# Keras Docker
 
 ### Version
 
-2.1.5 (TF backend 1.6.0)
+2.1.5 (TF backend 1.6.0). Based on Tensorflow docker above.
 
 ### Usage
 
+    docker build -t tensorflow -f Dockerfile.tensorflow .
     docker build -t keras -f Dockerfile.keras .
-    mkdir ~/notebooks
-    docker run --rm -it -v ~/notebooks:/notebooks keras
-
+    NOTEBOOK=~/notebooks
+    mkdir $NOTEBOOK
+    docker run --rm -it -v $NOTEBOOK:/notebooks keras
