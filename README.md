@@ -40,6 +40,12 @@ Python packages: `pandas`, `jupyter`, `notebooke`, `matplotlib`.
     mkdir $NOTEBOOK
     docker run --rm -it -v $NOTEBOOK:/notebooks keras
 
+Or run the container for the file `training.py` one-off (All related files must
+be accesiable from local directory).
+
+    NOTEBOOK=`pwd`
+    docker run --rm -it -v $NOTEBOOK:/notebooks  --entrypoint="" keras python training.py
+
 # Tex Docker
 
 See https://www.tug.org/texlive/acquire-netinstall.html for details.
@@ -54,3 +60,7 @@ Last tested version: texlive 2018.
     docker build -t tex -f Dockerfile.tex .
     TEX_SOURCE=~/tex_source
     docker run --rm -it -v $TEX_SOURCE:/source tex
+
+Or run the tex one-off
+
+    docker run --rm -v `pwd`:/source --entrypoint="" tex pdftex notes.tex
