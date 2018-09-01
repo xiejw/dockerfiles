@@ -14,4 +14,4 @@ Last tested version: texlive 2018.
 
 Or run the tex one-off
 
-    docker run --rm -v `pwd`:/source --entrypoint="" tex pdftex notes.tex
+    docker run --rm -v `pwd`:/source tex pdftex notes.tex

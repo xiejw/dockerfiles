@@ -2,7 +2,7 @@
 
 - Tensorflow and Keras: see [here](tensorflow_keras.md).
 - Tex: see [here](tex.md).
-- Gentoo Image: see [gentoo.md](gentoo.md).
+- Gentoo Image: see [here](gentoo.md).
 
 ## Docker Cheatsheet
 
