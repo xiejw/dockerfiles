@@ -67,6 +67,10 @@ Or run the tex one-off
 
 # Other
 
-## Gentoo
+## Gentoo Docker Image
 
 See [gentoo.md](gentoo.md) for details.
+
+## Docker Cheatsheet
+
+See [here](docker_cheatsheet.md).
