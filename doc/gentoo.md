@@ -14,10 +14,18 @@ See https://github.com/gentoo/gentoo-docker-images for reference.
 
 ## Install and Config
 
-- Update make.conf
-- Intall tools
+- Update `/etc/portage/make.conf`:
 
-        emerge sudo vim dev-vcs/git
+        USE="-doc -examples -emacs -debug"
+        FEATURES="nodoc noman noinfo"
+
+- Install tools
+
+        emerge sudo vim dev-vcs/git app-portage/gentoolkit
+
+- Set up timezone
+
+        cp /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
 
 - Add user
 
@@ -29,15 +37,44 @@ See https://github.com/gentoo/gentoo-docker-images for reference.
 
         su -l <user_name>
 
-# Portage Cheatsheet
+# Cheatsheet
 
+## Portage
+
+    # Update
     emerge --sync
     emerge --update --deep --with-bdeps=y --newuse @world
-    revdep-rebuild -v
     emerge -av --depclean
+    revdep-rebuild -v
 
-    emerge -pve world              # List all installed packages with USE
-    sudo emerge --ask <package>    # See USE and dep first.
+    # Check USE flags
+    emerge -pv @world
+    emerge -pv <package_name>
+
+
+    # Check system info
+    emerge --info
+
+    # Install and uninstall
+    emerge --ask <package>    # See USE and dep first.
+    emerge -a unmerge <package>
+
+    # Search
+    emerge search pdf
+
+    # Check package files
+    equery files <package>
+
+    # Find which (installed) package a file belongs to
+    equery b <file>
+
+## OpenRC `init`
+
+See [OpenRC](https://wiki.gentoo.org/wiki/OpenRC) for documentation.
+
+    rc-update add sshd default
+    rc-update del sshd default
+    rc-update -v show          # -v lists all, not just enabled
 
 # Backup
 
