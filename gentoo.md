@@ -1,5 +1,7 @@
 
-## Create New Docker Images
+# Create New Docker Images
+
+## Start
 
 See https://github.com/gentoo/gentoo-docker-images for reference.
 
@@ -9,6 +11,35 @@ See https://github.com/gentoo/gentoo-docker-images for reference.
 ## Run Container
 
     docker start -ai mygentoo
+
+## Install and Config
+
+- Update make.conf
+- Intall tools
+
+        emerge sudo vim dev-vcs/git
+
+- Add user
+
+        useradd -m -G users,wheel,audio -s /bin/bash <user_name>
+        passwd <user_name>
+        vim /etc/sudoers
+
+- Login
+
+        su -l <user_name>
+
+# Portage Cheatsheet
+
+    emerge --sync
+    emerge --update --deep --with-bdeps=y --newuse @world
+    revdep-rebuild -v
+    emerge -av --depclean
+
+    emerge -pve world              # List all installed packages with USE
+    sudo emerge --ask <package>    # See USE and dep first.
+
+# Backup
 
 ## Save copies
 
