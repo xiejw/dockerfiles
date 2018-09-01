@@ -1,8 +1,14 @@
+# vim: filetype=dockerfile
+
 FROM debian:jessie-slim
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends python python-dev build-essential ca-certificates && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        python \
+        python-dev \
+        build-essential \
+        ca-certificates \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 COPY get-pip.py /
 
@@ -10,7 +16,7 @@ RUN python get-pip.py && rm get-pip.py
 
 RUN pip --no-cache-dir install \
         tensorflow==1.6.0 jupyter==1.0.0 notebook==5.4.1 \
-        matplotlib==2.2.2 pandas==0.22.0 
+        matplotlib==2.2.2 pandas==0.22.0
 
 # Set up our notebook config.
 COPY jupyter_notebook_config.py /root/.jupyter/
