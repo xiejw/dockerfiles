@@ -10,7 +10,7 @@ Last tested version: texlive 2018.
 
     docker build -t tex -f Dockerfile.tex .
     TEX_SOURCE=~/tex_source
-    docker run --rm -it -v $TEX_SOURCE:/source tex
+    docker run --rm -it --hostname mytex -v $TEX_SOURCE:/source tex
 
 Or run the tex one-off
 
