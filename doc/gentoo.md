@@ -21,7 +21,10 @@ See https://github.com/gentoo/gentoo-docker-images for reference.
 
 - Install tools
 
-        emerge sudo vim dev-vcs/git app-portage/gentoolkit
+        emerge sudo vim dev-vcs/git app-portage/gentoolkit tux bash-completion
+        EDITOR=vim git config --global -e
+        ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
 
 - Set up timezone
 
@@ -44,6 +47,7 @@ See https://github.com/gentoo/gentoo-docker-images for reference.
     # Update
     emerge --sync
     emerge --update --deep --with-bdeps=y --newuse @world
+    dispatch-conf
     emerge -av --depclean
     revdep-rebuild -v
 
