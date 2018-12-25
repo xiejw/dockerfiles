@@ -1,0 +1,24 @@
+# vim: filetype=dockerfile
+
+# 16.04
+FROM ubuntu:xenial
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        wget \
+        python \
+        clang \
+        libcurl3 \
+        libicu-dev \
+        libpython-dev \
+        libncurses5-dev \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN wget --no-check-certificate https://storage.googleapis.com/swift-tensorflow/ubuntu16.04/swift-tensorflow-DEVELOPMENT-2018-12-04-a-ubuntu16.04.tar.gz \
+    && tar xvf swift*.tar.gz \
+    && rm -f swift*.tar.gz
+
+WORKDIR /workdir
+
+CMD ["bash"]
