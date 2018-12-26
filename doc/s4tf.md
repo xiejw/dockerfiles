@@ -12,3 +12,6 @@ Last tested version: Development 2018-12-04.
     WORKDIR=`pwd`
     docker run --rm -it --hostname s4tf -v $WORKDIR:/workdir s4tf
 
+## One-off Execute
+
+    docker run --rm -v `pwd`:/workdir s4tf swift <script_name>
