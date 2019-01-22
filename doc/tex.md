@@ -8,7 +8,7 @@ Last tested version: texlive 2018.
 
 ## Usage
 
-    docker build -t tex -f Dockerfile.tex .
+    docker build -t xiejw/tex -f Dockerfile.tex .
     TEX_SOURCE=~/tex_source
     docker run --rm -it --hostname mytex -v $TEX_SOURCE:/source tex
 
