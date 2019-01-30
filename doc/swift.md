@@ -18,3 +18,24 @@ There is no reason to use Debian for Swift Docker. This document is purely
     make build_swift
     # ARGS is optional.
     make ARGS="-v `pwd`:/workdir`" run_swift
+
+## Deployment
+
+To deploy a swift binary in Debian, the steps are much simpler.
+
+- Make sure your `swift` is compiled after
+  https://github.com/apple/swift/pull/20793. Otherwise, the `libdispatch` does
+  not have static library by default. Currently, only dev branch has that
+  change.
+
+- Compile the source code in release mode
+
+        swiftc -static-stdlib -O <src> -o <binary>
+        # Or
+        swift build -c release -Xswiftc -Xswiftc -static-stdlib
+
+- Inside Dockerfile,
+
+        apt install libgcc-6-dev
+
+
