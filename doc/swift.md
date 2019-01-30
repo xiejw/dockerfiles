@@ -8,6 +8,8 @@ There is no reason to use Debian for Swift Docker. This document is purely
 - a good summary about how I configured my Debian server to run Swift.
 - I like to use and understand Debian.
 
+For deployment, see the section "Deployment".
+
 ## Version
 
 - Swift: 4.2.1
@@ -32,10 +34,11 @@ To deploy a swift binary in Debian, the steps are much simpler.
 
         swiftc -static-stdlib -O <src> -o <binary>
         # Or
-        swift build -c release -Xswiftc -Xswiftc -static-stdlib
+        swift build -c release -Xswiftc -static-stdlib
 
-- Inside Dockerfile,
+- Inside Dockerfile, install the library to avoid the complaining of
+  `libatomic.so.1`.
 
-        apt install libgcc-6-dev
+        apt install libatomic1
 
 
