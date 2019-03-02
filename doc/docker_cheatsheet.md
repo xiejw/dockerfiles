@@ -24,6 +24,9 @@ Deletes
     docker rmi image_name
     docker rm -v container_name     # -v deletes the unnamed volume.
 
+Start
+    docker start <docker_name> -ai
+
 ## Volumes
 
     docker volume ls -f dangling=true
