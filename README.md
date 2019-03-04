@@ -12,7 +12,6 @@ The base image is `xiejw/baseimage` in Docker hub.
 ## Other useful docker.
 
 - Swift for Tensorflow: see [here](doc/s4tf.md).
-- Tensorflow and Keras: see [here](doc/tensorflow_keras.md).
 - Plain Tex: see [here](doc/tex.md).
 
 ## Docker Cheatsheet

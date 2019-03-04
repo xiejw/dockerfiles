@@ -1,8 +1,0 @@
-# vim: filetype=dockerfile
-
-FROM tensorflow
-
-RUN pip --no-cache-dir install \
-        keras==2.1.5 h5py==2.7.1
-
-CMD ["bash"]
