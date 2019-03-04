@@ -1,44 +1,22 @@
 # vim: filetype=dockerfile
 
-FROM xiejw/baseimage
+FROM ubuntu:18.04
+
+# Defines time zone.
+ENV TZ=America/Los_Angeles
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-        wget clang make \
+        wget clang libpython3.6-dev libblocksruntime-dev libxml2 libbsd-dev libcurl4 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-ENV CC /usr/bin/clang
+ARG SWIFT_DOWNLOAD_LINK=https://storage.googleapis.com/s4tf-kokoro-artifact-testing/latest/swift-tensorflow-DEVELOPMENT-ubuntu18.04.tar.gz
 
-RUN mkdir /tmpworkdir \
-    && cd /tmpworkdir \
-    && wget --no-check-certificate http://download.icu-project.org/files/icu4c/55.1/icu4c-55_1-src.tgz \
-    && tar xzvf icu4c-*.tgz \
-    && cd icu/source/ \
-    && ./configure \
-    && make \
-    && make install \
-    && cd / \
-    && rm -rf /tmpworkdir
-
-RUN mkdir /tmpworkdir \
-    && cd /tmpworkdir \
-    && wget --no-check-certificate https://swift.org/builds/swift-4.2.1-release/ubuntu1604/swift-4.2.1-RELEASE/swift-4.2.1-RELEASE-ubuntu16.04.tar.gz \
-    && tar xzvf swift*.tar.gz  -C / --strip-components 1 \
-    && cd / \
-    && rm -rf /tmpworkdir
-
-# Necessary for Swift Runtime.
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-       libxml2 \
-       tzdata \
-       libedit2 \
-       libpython2.7 \
-       libncurses5 \
-       libcurl3 \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+RUN wget --no-check-certificate $SWIFT_DOWNLOAD_LINK \
+    && tar xvf swift*.tar.gz \
+    && rm -f swift*.tar.gz
 
 WORKDIR /workdir
 

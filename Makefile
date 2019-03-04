@@ -5,4 +5,4 @@ build_swift:
 
 run_swift:
 	# Flag --privileged is required for swift (not swiftc).
-	docker run --rm -ti --privileged ${ARGS} xiejw/swift bash
+	docker run --rm -ti --privileged -v `pwd`:/workdir --hostname docker xiejw/swift bash
