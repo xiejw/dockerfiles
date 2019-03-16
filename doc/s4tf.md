@@ -27,7 +27,7 @@ To deploy a swift binary in Debian, the steps are much simpler.
 
 - Compile the source code in release mode
 
-        swiftc -static-stdlib -O <src> -o <binary>
+      swiftc -static-stdlib -O <src> -o <binary>
         # Or
         swift build -c release -Xswiftc -static-stdlib
 
