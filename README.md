@@ -2,12 +2,11 @@
 
 ## Base Image
 
-The base image is `xiejw/baseimage` in Docker hub.
+The base image is `xiejw/ubuntu` in Docker hub.
 
-    docker build -t xiejw/baseimage - < Dockerfile.baseimage
+    make build_ubuntu
     docker login
-    docker push xiejw/baseimage
-
+    make push_ubuntu
 
 ## Other useful docker.
 
