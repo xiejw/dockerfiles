@@ -1,0 +1,15 @@
+# vim: filetype=dockerfile
+FROM ubuntu:18.04
+
+# tzdata is required to set time zone.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        tzdata \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Defines time zone.
+ENV TZ=America/Los_Angeles
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+CMD ["bash"]
