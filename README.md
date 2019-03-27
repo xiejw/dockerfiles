@@ -12,6 +12,7 @@ The base image is `xiejw/ubuntu` in Docker hub.
 
 - Swift for Tensorflow: see [here](doc/s4tf.md).
 - Plain Tex: see [here](doc/tex.md).
+- Cron: [here](https://github.com/xiejw/eva/blob/master/dockerfiles/Dockerfile.cron).
 
 ## Docker Cheatsheet
 
