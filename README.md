@@ -10,10 +10,13 @@ The base image is `xiejw/ubuntu` in Docker hub.
 
 ## Other useful docker.
 
-- Swift for Tensorflow: see [here](doc/s4tf.md).
+- Cron: Has a special binary `/cron` to calcucate the seconds until next
+  schedule. See [here][Cron] for details.
 - Plain Tex: see [here](doc/tex.md).
-- Cron: [here](https://github.com/xiejw/eva/blob/master/dockerfiles/Dockerfile.cron).
+- Swift for Tensorflow: see [here](doc/s4tf.md).
 
 ## Docker Cheatsheet
 
 See [here](doc/docker_cheatsheet.md).
+
+[Cron]: https://github.com/xiejw/eva/blob/master/dockerfiles/Dockerfile.cron
