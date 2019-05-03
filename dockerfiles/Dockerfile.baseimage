@@ -1,8 +1,0 @@
-# vim: filetype=dockerfile
-FROM debian:stretch-slim
-
-# Defines time zone.
-ENV TZ=America/Los_Angeles
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-
-CMD ["bash"]
