@@ -1,5 +1,11 @@
 DOCKERFILE_DIR=dockerfiles
 
+build_tex:
+	docker build -t xiejw/tex -f dockerfiles/Dockerfile.tex .
+
+run_tex:
+	docker run --rm -ti -v `pwd`:/source xiejw/tex bash
+
 build_swift:
 	docker build -t xiejw/swift -f ${DOCKERFILE_DIR}/Dockerfile.swift .
 

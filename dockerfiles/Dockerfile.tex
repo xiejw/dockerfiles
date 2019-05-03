@@ -1,5 +1,5 @@
 # vim: filetype=dockerfile
-FROM xiejw/baseimage
+FROM xiejw/ubuntu
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -8,7 +8,6 @@ RUN apt-get update \
         python \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
-
 
 RUN mkdir -p /profiles/ \
     && mkdir -p /source
