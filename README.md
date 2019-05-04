@@ -10,7 +10,7 @@ The base image is `xiejw/ubuntu` in Docker hub.
 
 ## Other useful docker.
 
-- Cron: Has a special binary `/cron` to calcucate the seconds until next
+- Cron: Has a special binary `/cron` to calculate the seconds until next
   schedule. See [here][Cron] for details.
 - Plain Tex: see [here](doc/tex.md).
 - Swift for Tensorflow: see [here](doc/s4tf.md).
@@ -19,4 +19,13 @@ The base image is `xiejw/ubuntu` in Docker hub.
 
 See [here](doc/docker_cheatsheet.md).
 
+## Why Ubuntu is the Base Image
+
+Personally, I like Debian. However, Debian stable has very old packages,
+compared to Ubuntu. In addition, to use Swift properly, Ubuntu is much easier
+given official support.
+
+This decision could be revisited in future.
+
 [Cron]: https://github.com/xiejw/eva/blob/master/dockerfiles/Dockerfile.cron
+
