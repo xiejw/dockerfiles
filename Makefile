@@ -21,3 +21,7 @@ build_ubuntu:
 
 push_ubuntu:
 	docker push xiejw/ubuntu
+
+# {{{1 Mp3Tag
+build_mp3tag:
+	docker build -t xiejw/mp3tag -f ${DOCKERFILE_DIR}/Dockerfile.mp3tag .

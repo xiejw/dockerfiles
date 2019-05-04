@@ -1,0 +1,20 @@
+# vim: filetype=dockerfile
+
+FROM xiejw/ubuntu
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        python3 python3-pip \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip3 --no-cache-dir install --upgrade \
+    pip \
+    setuptools
+
+# The binary used is mid3iconv.
+RUN pip3 install mutagen
+
+WORKDIR /workdir
+
+CMD ["bash"]
