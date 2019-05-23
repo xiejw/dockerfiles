@@ -1,0 +1,14 @@
+# vim: filetype=dockerfile
+FROM xiejw/ubuntu
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        clang-format \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY assets/clang-format.sh /
+
+WORKDIR /source
+
+CMD ["bash"]

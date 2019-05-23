@@ -13,6 +13,7 @@ The base image is `xiejw/ubuntu` in Docker hub.
 - Cron: Has a special binary `/cron` to calculate the seconds until next
   schedule. See [here][Cron] for details.
 - Plain Tex: see [here](doc/tex.md).
+- Clang-Format: see [here](doc/clang-format.md).
 - Swift for Tensorflow: see [here](doc/s4tf.md).
 - Mp3Tag: See [here](doc/mp3tag.md).
 

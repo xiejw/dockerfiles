@@ -7,6 +7,14 @@ build_tex:
 run_tex:
 	docker run --rm -ti -v `pwd`:/source xiejw/tex bash
 
+# {{{1 Clang-Format
+build_clang_format:
+	docker build -t xiejw/clang-format -f dockerfiles/Dockerfile.clang-format .
+
+run_clang_format:
+	docker run --rm -ti -v `pwd`:/source xiejw/clang-format bash
+
+
 # {{{1 Swift
 build_swift:
 	docker build -t xiejw/swift -f ${DOCKERFILE_DIR}/Dockerfile.swift .
