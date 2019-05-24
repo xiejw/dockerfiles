@@ -1,0 +1,29 @@
+# vim: filetype=dockerfile
+
+FROM xiejw/swift
+
+# Install dependencies required for Swift for TensorFlow.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        git ca-certificates \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /
+
+ARG REPOSITORY_LINK=https://github.com/nicklockwood/SwiftFormat
+ARG COMMIT=6b8f072
+
+RUN git clone $REPOSITORY_LINK \
+    && cd SwiftFormat \
+    && git checkout $COMMIT . \
+    && swift build -c release \
+    && mv .build/release/swiftformat /usr/bin \
+    && cd / \
+    && rm -rf SwiftFormat
+
+COPY assets/swift-format.sh /
+
+WORKDIR /source
+
+CMD ["bash"]

@@ -14,7 +14,6 @@ build_clang_format:
 run_clang_format:
 	docker run --rm -ti -v `pwd`:/source xiejw/clang-format bash
 
-
 # {{{1 Swift
 build_swift:
 	docker build -t xiejw/swift -f ${DOCKERFILE_DIR}/Dockerfile.swift .
@@ -22,6 +21,13 @@ build_swift:
 run_swift:
 	# Flag --privileged is required for swift (not swiftc).
 	docker run --rm -ti --privileged -v `pwd`:/source --hostname docker xiejw/swift bash
+
+# {{{1 Swift-Format
+build_swift_format:
+	docker build -t xiejw/swift-format -f ${DOCKERFILE_DIR}/Dockerfile.swift-format .
+
+run_swift_format:
+	docker run --rm -ti -v `pwd`:/source xiejw/swift-format bash
 
 # {{{1 Ubuntu
 build_ubuntu:
