@@ -12,11 +12,9 @@ RUN apt-get update \
 WORKDIR /
 
 ARG REPOSITORY_LINK=https://github.com/nicklockwood/SwiftFormat
-ARG COMMIT=6b8f072
 
 RUN git clone $REPOSITORY_LINK \
     && cd SwiftFormat \
-    && git checkout $COMMIT . \
     && swift build -c release \
     && mv .build/release/swiftformat /usr/bin \
     && cd / \
