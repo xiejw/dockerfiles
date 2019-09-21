@@ -12,5 +12,5 @@ So, it makes sense to lock the version.
     make build_clang_format
     make run_clang_format
     # or
-    docker run --rm -ti -v `pwd`:/source xiejw/clang-format /clang-format.sh "(.h|.cpp)$$"
+    docker run --rm -ti -v `pwd`:/source xiejw/clang-format /clang-format.sh <dir>
 
