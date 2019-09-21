@@ -14,8 +14,6 @@ The base image is `xiejw/ubuntu` in Docker hub.
   schedule. See [here][Cron] for details.
 - Plain Tex: see [here](doc/tex.md).
 - Clang-Format: see [here](doc/clang-format.md).
-- Swift for Tensorflow: see [here](doc/swift-for-tensorflow.md).
-- Swift-Format: see [here](doc/swift-format.md).
 - Mp3Tag: See [here](doc/mp3tag.md).
 
 ## Docker Cheatsheet
