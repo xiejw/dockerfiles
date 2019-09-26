@@ -15,6 +15,10 @@ So, it makes sense to lock the version.
     # To use
     #
     # Note: clang-format might create new files under the user running inside
-    # the container. So, to maintain the permission, the uid is overriden here.
-    docker run --rm -ti --user `id -u ${USER}` -v `pwd`:/source xiejw/clang-format /clang-format.sh <dir>
+    # the container. So, to maintain the permission, the uid/gid are overriden
+    # here.
+    docker run --rm -ti \
+        --user `id -u ${USER}`:`id -g ${USER}` \
+        -v `pwd`:/source xiejw/clang-format \
+        /clang-format.sh <dir>
 
