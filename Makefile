@@ -7,9 +7,9 @@ build_tex:
 run_tex:
 	docker run --rm -ti -v `pwd`:/source xiejw/tex bash
 
-# {{{1 clang-Format
-build_clang_format:
-	docker build -t xiejw/clang-format -f dockerfiles/Dockerfile.clang-format .
+# {{{1 GHC/Haskell
+build_ghc:
+	docker build -t xiejw/ghc -f dockerfiles/Dockerfile.ghc .
 
 # {{{1 Debian
 build_debian:
@@ -22,3 +22,8 @@ build_ubuntu:
 # {{{1 Mp3Tag
 build_mp3tag:
 	docker build -t xiejw/mp3tag -f ${DOCKERFILE_DIR}/Dockerfile.mp3tag .
+
+# {{{1 clang-Format
+build_clang_format:
+	docker build -t xiejw/clang-format -f dockerfiles/Dockerfile.clang-format .
+
