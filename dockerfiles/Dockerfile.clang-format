@@ -9,6 +9,6 @@ RUN apt-get update \
 
 COPY assets/clang-format.sh /
 
-WORKDIR /source
+WORKDIR /workdir
 
 CMD ["bash"]

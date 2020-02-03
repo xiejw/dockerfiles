@@ -1,5 +1,5 @@
 # vim: filetype=dockerfile
-FROM xiejw/ubuntu
+FROM xiejw/baseimage
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -24,6 +24,6 @@ RUN wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz \
     && cd / \
     && rm -rf install*
 
-WORKDIR /source
+WORKDIR /workdir
 
 CMD ["bash"]

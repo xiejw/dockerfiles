@@ -1,6 +1,6 @@
 # vim: filetype=dockerfile
 
-FROM xiejw/ubuntu
+FROM xiejw/baseimage
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
