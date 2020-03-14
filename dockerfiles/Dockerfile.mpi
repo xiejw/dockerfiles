@@ -8,8 +8,27 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+# Allows `root` user login in.
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+
+RUN ssh-keygen -P "" -f /root/.ssh/id_rsa
+RUN cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys
+
+# Disable password requirement.
+RUN sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
+  
+# Disable client side host key checking.
+RUN sed -i 's/#   StrictHostKeyChecking ask/StrictHostKeyChecking no/' /etc/ssh/ssh_config
+
+
+# Now it is ok to start the ssh service
+# service ssh restart
+
+# Use docker network create my-net
+# docker run --rm -ti --net my-net --name host_1 xiejw/mpi
+
+RUN mkdir /var/run/sshd
 
 WORKDIR /workdir
 
-CMD ["bash"]
+CMD ["/usr/sbin/sshd", "-D"]
