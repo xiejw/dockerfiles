@@ -4,7 +4,7 @@ FROM xiejw/baseimage
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-        openssh-server mpich \
+        openssh-server mpich libmpich-dev \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -26,6 +26,12 @@ RUN sed -i 's/#   StrictHostKeyChecking ask/StrictHostKeyChecking no/' /etc/ssh/
 
 # Use docker network create my-net
 # docker run --rm -ti --net my-net --name host_1 xiejw/mpi
+# docker run --rm -ti --net my-net --name host_2 xiejw/mpi
+# docker run --rm -ti --net my-net --name host_3 -v `pwd`:/workdir xiejw/mpi
+# mpicc hello.c
+# scp a.out host_1:/tmp
+# scp a.out host_2:/tmp
+# mpiexec -f machinefile -n 2 /tmp/a.out 
 
 RUN mkdir /var/run/sshd
 
