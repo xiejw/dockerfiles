@@ -1,38 +1,27 @@
-# vim: filetype=dockerfile
+# vim: filetype=dockerfile:foldenable:foldlevel=1:foldmethod=marker
 
 FROM xiejw/baseimage
 
+# {{{2 Packages
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         openssh-server mpich libmpich-dev \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+# {{{2 Config SSHD and SSH
+#
 # Allows `root` user login in.
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
-
+# Generates the key. For simplicity, we dump the pub to authorized_keys.
 RUN ssh-keygen -P "" -f /root/.ssh/id_rsa
 RUN cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys
-
 # Disable password requirement.
 RUN sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
-  
 # Disable client side host key checking.
 RUN sed -i 's/#   StrictHostKeyChecking ask/StrictHostKeyChecking no/' /etc/ssh/ssh_config
 
-
-# Now it is ok to start the ssh service
-# service ssh restart
-
-# Use docker network create my-net
-# docker run --rm -ti --net my-net --name host_1 xiejw/mpi
-# docker run --rm -ti --net my-net --name host_2 xiejw/mpi
-# docker run --rm -ti --net my-net --name host_3 -v `pwd`:/workdir xiejw/mpi
-# mpicc hello.c
-# scp a.out host_1:/tmp
-# scp a.out host_2:/tmp
-# mpiexec -f machinefile -n 2 /tmp/a.out 
-
+# {{{2 FS Configuration
 RUN mkdir /var/run/sshd
 
 WORKDIR /workdir

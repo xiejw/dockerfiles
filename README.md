@@ -14,6 +14,7 @@ The base image is `xiejw/ubuntu` in Docker hub.
   schedule. See [here][Cron] for details.
 - Plain Tex: see [here](doc/tex.md).
 - Clang-Format: see [here](doc/clang-format.md).
+- MPI: see [here](doc/mpi.md).
 - Mp3Tag: See [here](doc/mp3tag.md).
 
 ## Docker Cheatsheet
