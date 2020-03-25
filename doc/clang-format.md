@@ -10,7 +10,7 @@ So, it makes sense to lock the version.
 # How
 
     # To build
-    make build_clang_format
+    make xiejw/clang-format
 
     # To use
     #
@@ -19,6 +19,6 @@ So, it makes sense to lock the version.
     # here.
     docker run --rm -ti \
         --user `id -u ${USER}`:`id -g ${USER}` \
-        -v `pwd`:/source xiejw/clang-format \
-        /clang-format.sh <dir>
+        -v `pwd`:/workdir xiejw/clang-format \
+        /clang-format.sh <dir_list>
 
