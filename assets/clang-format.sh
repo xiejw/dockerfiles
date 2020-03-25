@@ -9,4 +9,4 @@ fi
 
 CLANG_FORMAT="/usr/bin/clang-format -i -style=Google "
 
-find $1 -iname *.h -o -iname *.cpp | xargs ${CLANG_FORMAT}
+find $1 -iname *.h -o -iname *.cpp -o -iname *.cc | xargs ${CLANG_FORMAT}
