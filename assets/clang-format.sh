@@ -10,5 +10,5 @@ fi
 CLANG_FORMAT="/usr/bin/clang-format -i -style=Google "
 
 for DIR in "$@"; do
-  find ${DIR} -iname *.h -o -iname *.cpp -o -iname *.cc | xargs ${CLANG_FORMAT}
+  find ${DIR} -iname *.h -o -iname *.cpp -o -iname *.cc -o -iname *.c | xargs ${CLANG_FORMAT}
 done
