@@ -1,7 +1,5 @@
 #!/bin/sh
 
-set -x
-
 if [ $# -eq 0 ]; then
   echo "No argument supplied"
   exit 1
