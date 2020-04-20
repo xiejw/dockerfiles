@@ -1,5 +1,8 @@
 # vim: filetype=dockerfile
-FROM xiejw/baseimage
+
+# Clang-format 9.0 is only available in new Debian.
+# FROM xiejw/baseimage
+FROM debian:bullseye-slim
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
