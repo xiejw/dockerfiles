@@ -8,6 +8,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 COPY assets/clang-format.sh /
+COPY assets/clang-format.config /.clang-format
 
 WORKDIR /workdir
 

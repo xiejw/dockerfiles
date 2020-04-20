@@ -5,7 +5,8 @@ if [ $# -eq 0 ]; then
   exit 1
 fi
 
-CLANG_FORMAT="/usr/bin/clang-format -i -style=Google "
+# To generate the style file, run `clang-format -style=Google -dump-config`.
+CLANG_FORMAT="/usr/bin/clang-format -i -style=file "
 
 for DIR in "$@"; do
   find ${DIR} -iname *.h -o -iname *.cpp -o -iname *.cc -o -iname *.c | xargs ${CLANG_FORMAT}
