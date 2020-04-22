@@ -13,6 +13,7 @@ xiejw/baseimage:
 # - xiejw/pandoc
 #
 # Note: If $@ is xiejw/abc, then $(@F) is abc.
+# Note: Seeting Docker context as `assets` to re-use cache.
 xiejw/%:
-	docker build -t $@ -f ${DOCKERFILE_DIR}/Dockerfile.$(@F) .
+	docker build -t $@ -f ${DOCKERFILE_DIR}/Dockerfile.$(@F) assets
 
