@@ -21,15 +21,7 @@ The base image is `xiejw/baseimage` in Docker hub.
 
 See [here](doc/docker_cheatsheet.md).
 
-## Why chooses Ubuntu as the Base Image?
-
-Personally, I like Debian. However, Debian stable has very old packages,
-compared to Ubuntu. In addition, to use Swift properly, Ubuntu is much easier
-given official support.
-
-This decision could be revisited in future.
-
-## What's in the Ubuntu Base Image?
+## What's in the Debian Base Image?
 
 - Time zone: America - Los Angeles
 - Locale: `en_US.UTF-8`

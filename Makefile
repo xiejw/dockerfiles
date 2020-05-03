@@ -9,12 +9,13 @@ xiejw/baseimage:
 # - xiejw/tex
 # - xiejw/clang-Format
 #
-# - xiejw/ghc           :: Haskell
-# - xiejw/mp3Tag
-# - xiejw/pandoc
+# - xiejw/mp3tag
+# - xiejw/mpi
 #
 # Note: If $@ is xiejw/abc, then $(@F) is abc.
-# Note: Seeting Docker context as `assets` to re-use cache.
+#
+# Note: Setting Docker context as `assets` to avoid large file transfers.
+#
 xiejw/%:
 	docker build -t $@ -f ${DOCKERFILE_DIR}/Dockerfile.$(@F) assets
 
