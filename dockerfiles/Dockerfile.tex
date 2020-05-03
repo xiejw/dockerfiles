@@ -10,9 +10,10 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /profiles/ \
-    && mkdir -p /source
+    && mkdir -p /workdir
 
-COPY assets/texlive.profile /profiles/
+# Copy from assets folder.
+COPY texlive.profile /profiles/
 
 ENV TEXLIVE_INSTALL_TEXDIR=/usr/local/texlive
 ENV PATH /usr/local/texlive/bin/x86_64-linux:$PATH

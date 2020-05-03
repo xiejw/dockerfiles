@@ -8,17 +8,10 @@ Last tested version: [TexLive][TEXLIVE] 2019.
 
 ## Usage
 
-    make build_tex
-    make run_tex
+    # To build.
+    make xiejw/tex
 
-    # OR manually
-
-    docker build -t xiejw/tex -f Dockerfile.tex .
-    TEX_SOURCE=~/tex_source
-    docker run --rm -it --hostname mytex -v $TEX_SOURCE:/source tex
-
-Or run the TeX one-off
-
-    docker run --rm -v `pwd`:/source tex pdftex notes.tex
+    # To run the TeX one-off
+    docker run --rm -v `pwd`:/workdir xiejw/tex pdftex <local_file.tex>
 
 [TEXLIVE]: https://tug.org/texlive/
