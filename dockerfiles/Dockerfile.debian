@@ -1,4 +1,6 @@
 # vim: filetype=dockerfile
+#
+# Check https://www.debian.org/releases/ for latest release info.
 FROM debian:buster-slim
 
 ################### Set up the Time Zone
