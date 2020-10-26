@@ -1,0 +1,14 @@
+# vim: filetype=dockerfile
+
+# use new version of llvm.
+FROM debian:bullseye-slim
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        make llvm clang \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /workdir
+
+CMD ["bash"]

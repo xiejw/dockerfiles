@@ -7,7 +7,8 @@ xiejw/baseimage:
 # {{{1 Other Dockers
 #
 # - xiejw/tex
-# - xiejw/clang-Format
+# - xiejw/clang-format
+# - xiejw/llvm-clang
 #
 # - xiejw/mp3tag
 # - xiejw/mpi
