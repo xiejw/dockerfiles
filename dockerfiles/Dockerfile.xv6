@@ -1,0 +1,42 @@
+# vim: filetype=dockerfile
+#
+# Check https://www.debian.org/releases/ for latest release info.
+FROM debian:bullseye
+
+################### Set up the Time Zone
+
+# tzdata is required to set time zone.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        tzdata \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Defines time zone.
+ENV TZ=America/Los_Angeles
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+################### Set up the LOCALE
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        locales \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
+    dpkg-reconfigure --frontend=noninteractive locales && \
+    update-locale LANG=en_US.UTF-8
+
+ENV LANG en_US.UTF-8
+
+################### Set up the compiler toolchain
+# https://pdos.csail.mit.edu/6.828/2020/tools.html
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        git build-essential gdb-multiarch qemu-system-misc gcc-riscv64-linux-gnu binutils-riscv64-linux-gnu \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /workdir
+
+CMD ["bash"]
