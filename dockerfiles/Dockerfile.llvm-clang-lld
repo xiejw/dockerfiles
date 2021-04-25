@@ -5,7 +5,7 @@ FROM debian:bullseye-slim
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-        make llvm clang \
+        make llvm clang lld\
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
