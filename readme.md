@@ -28,3 +28,9 @@ See [here](doc/docker_cheatsheet.md).
 
 [Cron]: https://github.com/xiejw/eva/blob/master/dockerfiles/Dockerfile.cron
 
+## Future Plans
+
+- Deprecate mpi
+- Deprecate xv6
+- Deprecate mp3tag
+- Merge clang-fmt with clang-lld
